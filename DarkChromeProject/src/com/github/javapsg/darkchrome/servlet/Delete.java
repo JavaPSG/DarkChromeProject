@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.github.javapsg.darkchrome.UserManager;
 
-@WebServlet("/DarkChromeTab/delete")
+@WebServlet("/DarkChromeProject/delete")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,7 +34,7 @@ public class Delete extends HttpServlet {
 		if (n > 0)
 			response.sendRedirect("/member/memberList.jsp");
 	else
-			out.print("<script> alert('회원 정보 삭제를 실패 했습니다.'); </script>");
+			out.print("<script> alert('�쉶�썝 �젙蹂� �궘�젣瑜� �떎�뙣 �뻽�뒿�땲�떎.'); </script>");
 	}
 
 }

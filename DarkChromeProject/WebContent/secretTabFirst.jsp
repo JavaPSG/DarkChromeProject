@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="./resources/image/favicon-gray.svg">
 <meta charset="UTF-8">
-<link rel="icon" href="/resources/image/logo.png">
 <title>새 탭</title>
 <style>
 @import
@@ -114,14 +114,12 @@ em {
 }
 
 .icon {
-	content:
-		url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoMTIwdjEyMEgweiIvPjxwYXRoIGQ9Ik02MCAwYzMzLjEzNyAwIDYwIDI2Ljg2MyA2MCA2MHMtMjYuODYzIDYwLTYwIDYwUzAgOTMuMTM3IDAgNjAgMjYuODYzIDAgNjAgMHptMTcuNSA2NC44MzdjLTYuNDU2IDAtMTEuODIyIDQuNTAyLTEzLjIyMiAxMC41MTYtMy4yNjctMS4zOTctNi4zLTEuMDA5LTguNTU2LS4wMzlDNTQuMjgzIDY5LjMgNDguOTE3IDY0LjgzNyA0Mi41IDY0LjgzN2MtNy41MDYgMC0xMy42MTEgNi4wOTItMTMuNjExIDEzLjU4MkMyOC44ODkgODUuOTA4IDM0Ljk5NCA5MiA0Mi41IDkyYzcuMTU2IDAgMTIuOTUtNS41MSAxMy40OTQtMTIuNDk1IDEuMTY3LS44MTUgNC4yNC0yLjMyOCA4LjAxMi4wNzhDNjQuNjI4IDg2LjUyOSA3MC4zODMgOTIgNzcuNSA5MmM3LjUwNiAwIDEzLjYxMS02LjA5MiAxMy42MTEtMTMuNTgxIDAtNy40OS02LjEwNS0xMy41ODItMTMuNjExLTEzLjU4MnptLTM1IDMuODhjNS4zNjcgMCA5LjcyMiA0LjM0NyA5LjcyMiA5LjcwMiAwIDUuMzU1LTQuMzU1IDkuNy05LjcyMiA5LjctNS4zNjcgMC05LjcyMi00LjM0NS05LjcyMi05LjcgMC01LjM1NSA0LjM1NS05LjcwMSA5LjcyMi05LjcwMXptMzUgMGM1LjM2NyAwIDkuNzIyIDQuMzQ3IDkuNzIyIDkuNzAyIDAgNS4zNTUtNC4zNTUgOS43LTkuNzIyIDkuNy01LjM2NyAwLTkuNzIyLTQuMzQ1LTkuNzIyLTkuNyAwLTUuMzU1IDQuMzU1LTkuNzAxIDkuNzIyLTkuNzAxek05NSA1N0gyNXY0aDcwdi00ek03Mi44NzQgMjkuMzRjLS44LTEuODItMi44NjYtMi43OC00Ljc4NS0yLjE0M0w2MCAyOS45MTRsLTguMTI4LTIuNzE3LS4xOTItLjA1OGMtMS45MjgtLjUzMy0zLjk1NC41MS00LjY2OSAyLjM4N0wzOC4xNDQgNTNoNDMuNzEyTDcyLjk1IDI5LjUyNnoiIGZpbGw9IiNEQURDRTAiLz48L2c+PC9zdmc+);
+	content: url(./resources/image/icon-gray.svg);
 	height: 120px;
 	width: 120px;
 	margin-inline-end: auto;
 	margin-inline-start: auto;
 }
-
 
 #cookie {
 	align-items: center;
@@ -144,7 +142,6 @@ em {
 #cookie-description em {
 	display: block;
 }
-
 
 /* Align the two columns of bulletpoints next to each other. */
 #bulletpoints-wrapper {
@@ -174,18 +171,17 @@ em {
 </style>
 </head>
 <body>
-<%
-	Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookiefirstscreen","utf-8"));
-	cok.setMaxAge(60 * 60 * 24 * 30);
-	response.addCookie(cok);
-%>
+	<%
+		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookiefirstscreen", "utf-8"));
+		cok.setMaxAge(60 * 60 * 24 * 30);
+		response.addCookie(cok);
+	%>
 	<div class="content">
 		<div class="icon" role="presentation" alt=""></div>
 		<h1>시크릿 모드로 전환됨</h1>
 		<p>
 			<span>이제 비공개로 인터넷을 탐색할 수 있으며, 이 기기를 사용하는 다른 사용자가 내 활동을 볼 수
-				없습니다. 하지만 다운로드, 북마크, 읽기 목록 항목은 계속해서 저장됩니다.</span> <a
-				class="link"
+				없습니다. 하지만 다운로드, 북마크, 읽기 목록 항목은 계속해서 저장됩니다.</span> <a class="link"
 				href="https://support.google.com/chrome/?p=incognito">자세히 알아보기</a>
 		</p>
 		<div id="bulletpoints-wrapper">
