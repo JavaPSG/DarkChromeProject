@@ -9,9 +9,11 @@
 </head>
 <body>
 	<%
-		%>
-		<jsp:forward page="secretTabFirst.jsp" />
-		<%
+		
+	%>
+	<jsp:forward page="SecretTabFirst.jsp" />
+	<%
+		
 	%>
 	<%
 		Cookie[] cok = request.getCookies();
@@ -21,13 +23,13 @@
 					switch (URLDecoder.decode(cok[i].getValue(), "utf-8")) {
 					case ("cookieoffscreen"): {
 	%>
-	<jsp:forward page="secretTabOff.jsp" />
+	<jsp:forward page="SecretTabOff.jsp" />
 	<%
 		break;
 					}
 					case ("cookieonscreen"): {
 	%>
-	<jsp:forward page="secretTabOn.jsp" />
+	<jsp:forward page="SecretTabOn.jsp" />
 	<%
 		break;
 					}
@@ -36,7 +38,7 @@
 
 			}
 	%>
-	<jsp:forward page="secretTabFirst.jsp" />
+	<jsp:forward page="SecretTabFirst.jsp" />
 	<%
 		}
 	%>

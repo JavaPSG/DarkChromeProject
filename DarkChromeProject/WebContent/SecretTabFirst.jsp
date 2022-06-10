@@ -1,12 +1,11 @@
-<%@page import="java.net.InetAddress"%>
 <%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="./resources/image/favicon-gray.svg">
 <meta charset="UTF-8">
-<link rel="icon" href="./resources/image/favicon-red.svg">
 <title>새 탭</title>
 <style>
 @import
@@ -32,20 +31,20 @@
 	display: inline-block;
 	width: 27px;
 	height: 12.9px;
-	background: rgb(202, 89, 70);
+	background: rgb(98, 130, 188);
 	border-radius: 20px;
 	transition: 0.15s;
 }
 
 .button {
 	position: absolute;
-	top: -1.1px;
-	left: -4px;
+	top: -1.5px;
+	left: 15px;
 	display: inline-block;
 	width: 16px;
 	height: 16px;
 	border-radius: 20px;
-	background: rgb(242, 139, 130);
+	background: rgb(138, 180, 248);
 	transition: 0.15s;
 }
 
@@ -69,7 +68,7 @@ body {
 	min-width: 240px;
 	padding: 8px 48px 24px;
 	background-color: rgb(53, 54, 58);
-	color: rgb(234, 67, 53); /* --google-grey-200 */
+	color: rgb(232, 234, 237); /* --google-grey-200 */
 	font-size: calc(100% - 2px);
 	line-height: calc(100% + 6px);
 	min-width: 240px;
@@ -105,17 +104,17 @@ p {
 }
 
 em {
-	color: red;
+	color: white;
 	font-style: normal;
 }
 
 .link {
-	color: rgb(242, 139, 130);
+	color: rgb(138, 180, 248);
 	text-decoration: none;
 }
 
 .icon {
-	content: url(./resources/image/icon-red.svg);
+	content: url(./resources/image/icon-gray.svg);
 	height: 120px;
 	width: 120px;
 	margin-inline-end: auto;
@@ -173,40 +172,31 @@ em {
 </head>
 <body>
 	<%
-		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookieoffscreen", "utf-8"));
+		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookiefirstscreen", "utf-8"));
 		cok.setMaxAge(60 * 60 * 24 * 30);
 		response.addCookie(cok);
 	%>
 	<div class="content">
 		<div class="icon" role="presentation" alt=""></div>
-		<h1>다크 모드로 전환됨</h1>
+		<h1>시크릿 모드로 전환됨</h1>
 		<p>
-			<span>이제 비공개로 인터넷을 탐색할 수 없으며, 이 기기를 사용하는 다른 사용자가 내 활동을 볼 수
-				있습니다. 당연히 다운로드, 북마크, 읽기 목록 항목은 계속해서 유출됩니다.</span> <a class="link"
+			<span>이제 비공개로 인터넷을 탐색할 수 있으며, 이 기기를 사용하는 다른 사용자가 내 활동을 볼 수
+				없습니다. 하지만 다운로드, 북마크, 읽기 목록 항목은 계속해서 저장됩니다.</span> <a class="link"
 				href="https://support.google.com/chrome/?p=incognito">자세히 알아보기</a>
 		</p>
 		<div id="bulletpoints-wrapper">
 			<div class="bulletpoints first">
-				DarkChromeProject에서는 다음 정보를 <em>저장했습니다</em>.
+				Chrome에서는 다음 정보를 <em>저장하지 않습니다</em>.
 				<ul>
-					<%
-					String ipAddress=request.getRemoteAddr();
-					if(ipAddress.equalsIgnoreCase("0:0:0:0:0:0:0:1")){
-					    InetAddress inetAddress=InetAddress.getLocalHost();
-					    ipAddress=inetAddress.getHostAddress();
-					}
-					%>
-					<li>IP: <%= ipAddress %></li>
-					/** https://ip.pe.kr/api/ */
-					/** https://all-record.tistory.com/106 */
-					<li>위치: </li>
-					<li>디바이스: </li>
+					<li>방문 기록</li>
+					<li>쿠키 및 사이트 데이터</li>
+					<li>양식에 입력된 정보</li>
 				</ul>
 			</div>
 			<div class="bulletpoints">
-				다음의 관계자는 내 활동 내역을 <em>확인하고 유출합니다</em>.
+				다음의 관계자는 내 활동 내역을 <em>확인할 수도 있습니다</em>.
 				<ul>
-					<li>ㅎ</li>
+					<li>방문한 웹사이트</li>
 					<li>고용주 또는 학교</li>
 					<li>인터넷 서비스 제공업체</li>
 				</ul>
@@ -214,10 +204,10 @@ em {
 		</div>
 		<div id="cookie">
 			<div id="cookie-description">
-				<em>해킹 쿠키 허용</em> 이 옵션을 사용 설정하면 사이트가 웹 전반에서 사용자를 추적하는 쿠키를 사용할 수
-				있습니다. 어느 사이트에서나 사용자의 신상을 유출할 수 있습니다.
+				<em>타사 쿠키 차단</em> 이 옵션을 사용 설정하면 사이트가 웹 전반에서 사용자를 추적하는 쿠키를 사용할 수
+				없습니다. 일부 사이트에서는 기능이 작동하지 않을 수 있습니다.
 			</div>
-			<form action="secretTabOn.jsp" method="post">
+			<form action="SecretTabOff.jsp" method="post">
 				<input class="wrapper" type="submit" id="button"> <label
 					for="button" class="button_label"> <span class="button"></span>
 				</label>

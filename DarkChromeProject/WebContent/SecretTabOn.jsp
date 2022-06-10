@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="./resources/image/favicon-gray.svg">
 <meta charset="UTF-8">
+<link rel="icon" href="./resources/image/favicon-gray.svg">
 <title>새 탭</title>
 <style>
 @import
@@ -38,7 +38,7 @@
 
 .button {
 	position: absolute;
-	top: -1.5px;
+	top: -1.1px;
 	left: 15px;
 	display: inline-block;
 	width: 16px;
@@ -78,6 +78,7 @@ body {
 }
 
 h1 {
+	color: rgb(252, 201, 52);
 	font-size: 22px;
 	font-weight: 400;
 	line-height: calc(100% + 8px);
@@ -109,7 +110,7 @@ em {
 }
 
 .link {
-	color: rgb(138, 180, 248);
+	color: rgb(253, 214, 51);
 	text-decoration: none;
 }
 
@@ -172,13 +173,13 @@ em {
 </head>
 <body>
 	<%
-		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookiefirstscreen", "utf-8"));
+		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookieonscreen", "utf-8"));
 		cok.setMaxAge(60 * 60 * 24 * 30);
 		response.addCookie(cok);
 	%>
 	<div class="content">
 		<div class="icon" role="presentation" alt=""></div>
-		<h1>시크릿 모드로 전환됨</h1>
+		<h1>시크릿 모드로 전환에 실패함</h1>
 		<p>
 			<span>이제 비공개로 인터넷을 탐색할 수 있으며, 이 기기를 사용하는 다른 사용자가 내 활동을 볼 수
 				없습니다. 하지만 다운로드, 북마크, 읽기 목록 항목은 계속해서 저장됩니다.</span> <a class="link"
@@ -204,10 +205,10 @@ em {
 		</div>
 		<div id="cookie">
 			<div id="cookie-description">
-				<em>타사 쿠키 차단</em> 이 옵션을 사용 설정하면 사이트가 웹 전반에서 사용자를 추적하는 쿠키를 사용할 수
-				없습니다. 일부 사이트에서는 기능이 작동하지 않을 수 있습니다.
+				<em>타사 쿠키 차단에 실패함</em> 이 옵션을 사용 설정하면 사이트가 웹 전반에서 사용자를 추적하는 쿠키를 사용할 수
+				없습니다. 일부 사이트에서는 기능이 작동하지 않습니다.
 			</div>
-			<form action="secretTabOff.jsp" method="post">
+			<form action="SecretTabOff.jsp" method="post">
 				<input class="wrapper" type="submit" id="button"> <label
 					for="button" class="button_label"> <span class="button"></span>
 				</label>
