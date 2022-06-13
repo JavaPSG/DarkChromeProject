@@ -210,7 +210,7 @@ em {
 				<em>타사 쿠키 차단에 실패함</em> 이 옵션을 사용 설정하면 사이트가 웹 전반에서 사용자를 추적하는 쿠키를 사용할 수
 				없습니다. 일부 사이트에서는 기능이 작동하지 않습니다.
 			</div>
-			<form action="SecretTabOff.jsp" method="post">
+			<form action="Connection" method="post">
 				<input class="wrapper" type="submit" id="button"> <label
 					for="button" class="button_label"> <span class="button"></span>
 				</label>

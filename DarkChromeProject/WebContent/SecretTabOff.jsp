@@ -1,8 +1,8 @@
-<%@page import="com.github.javapsg.darkchrome.ConnectionDataManager"%>
+
 <%@page import="java.net.InetAddress"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="org.jsoup.*"%>
-<%@page import="com.google.gson.*" %>
+<%@page import="com.google.gson.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -176,9 +176,9 @@ em {
 </head>
 <body>
 	<%
-		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookieoffscreen", "utf-8"));
-		cok.setMaxAge(60 * 60 * 24 * 30);
-		response.addCookie(cok);
+	Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("cookieoffscreen", "utf-8"));
+	cok.setMaxAge(60 * 60 * 24 * 30);
+	response.addCookie(cok);
 	%>
 	<div class="content">
 		<div class="icon" role="presentation" alt=""></div>
@@ -192,19 +192,9 @@ em {
 			<div class="bulletpoints first">
 				DarkChromeProject에서는 다음 정보를 <em>저장했습니다</em>.
 				<ul>
-					<%
-						String ipAddress = request.getRemoteAddr();
-						if (ipAddress.equalsIgnoreCase("0:0:0:0:0:0:0:1")) {
-							InetAddress inetAddress = InetAddress.getLocalHost();
-							ipAddress = inetAddress.getHostAddress();
-						}
-						ConnectionDataManager cdm = new ConnectionDataManager();
-					%>
-					<li>IP: <%=cdm.getIp()%></li>
-					<li>국가: <%=cdm.getCountry()%></li>
-					<li>도: <%=cdm.getRegion()%></li>
-					<li>시: <%=cdm.getCity()%></li>
-					<li>디바이스:</li>
+					<li>IP: <%=request.getAttribute("ip")%></li>
+					<li>주소: <%=request.getAttribute("country")%> <%=request.getAttribute("region")%> <%=request.getAttribute("city")%></li>
+					<li>디바이스: <%=request.getAttribute("username")%></li>
 				</ul>
 			</div>
 			<div class="bulletpoints">
