@@ -1,3 +1,4 @@
+<%@page import="com.github.javapsg.darkchrome.ConnectionDataManager"%>
 <%@page import="java.net.InetAddress"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="org.jsoup.*"%>
@@ -197,10 +198,12 @@ em {
 							InetAddress inetAddress = InetAddress.getLocalHost();
 							ipAddress = inetAddress.getHostAddress();
 						}
+						ConnectionDataManager cdm = new ConnectionDataManager();
 					%>
-					<li>IP: <%=ipAddress%></li> /** https://ip.pe.kr/api/ */ /**
-					https://all-record.tistory.com/106 */
-					<li>위치:</li>
+					<li>IP: <%=cdm.getIp()%></li>
+					<li>국가: <%=cdm.getCountry()%></li>
+					<li>도: <%=cdm.getRegion()%></li>
+					<li>시: <%=cdm.getCity()%></li>
 					<li>디바이스:</li>
 				</ul>
 			</div>

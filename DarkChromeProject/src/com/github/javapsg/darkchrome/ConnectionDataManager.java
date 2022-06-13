@@ -44,7 +44,7 @@ public class ConnectionDataManager {
 		return ip;
 	}
 
-	public String getCountry() {
+	public String string() {
 		return country;
 	}
 
@@ -54,6 +54,11 @@ public class ConnectionDataManager {
 
 	public String getCity() {
 		return city;
+
+	}
+	
+	public String getCountry() {
+		return country;
 
 	}
 }
