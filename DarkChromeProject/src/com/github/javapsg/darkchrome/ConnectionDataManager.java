@@ -11,28 +11,28 @@ import com.google.gson.JsonParser;
 
 public class ConnectionDataManager {
 	public ConnectionDataManager() throws IOException {
-		Document doc1 = Jsoup.connect("https://api.ip.pe.kr/json/").get();
+		Document doc1 = Jsoup.connect("https://api.ip.pe.kr/json/").ignoreContentType(true).get();
 		String param1 = doc1.text();
+		System.out.print(param1);
 
 		JsonParser parser1 = new JsonParser();
 		JsonElement element1 = parser1.parse(param1);
-		JsonObject ipJ = element1.getAsJsonObject().get("ip").getAsJsonObject();
-		JsonObject countryJ = element1.getAsJsonObject().get("country_name").getAsJsonArray().getAsJsonObject()
-				.get("ko").getAsJsonObject();
+		JsonElement countryJ = element1.getAsJsonObject().get("country_name").getAsJsonArray().getAsJsonObject().get("ko");
 
 		Document doc2 = Jsoup.connect("http://ip-api.com/json/" + ipJ.getAsString() + "?fields=country,regionName,city")
-				.get();
+				.ignoreContentType(true).get();
 		String param2 = doc2.text();
-
-		JsonParser parser2 = new JsonParser();
+		System.out.print(param2);
+		
+		JsonParser  parser2  = new JsonParser();
 		JsonElement element2 = parser2.parse(param1);
-		JsonObject regionJ = element2.getAsJsonObject().get("regionName").getAsJsonObject();
-		JsonObject cityJ = element2.getAsJsonObject().get("city").getAsJsonObject();
+		JsonElement regionJ = element2.getAsJsonObject().get("regionName");
+		JsonElement cityJ = element2.getAsJsonObject().get("city");
 
-		ip = ipJ.getAsString();
-		country = countryJ.getAsString();
-		region = regionJ.getAsString();
-		city = cityJ.getAsString();
+		ip = element1.getAsJsonObject().get("ip").getAsString();
+		country = element2.getAsJsonObject().get("regionName").getAsString();
+		region = element2.getAsJsonObject().get("regionName").getAsString();
+		city =  element2.getAsJsonObject().get("city").getAsString();
 	}
 
 	private static String ip;
