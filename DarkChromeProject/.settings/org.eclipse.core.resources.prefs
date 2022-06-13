@@ -1,7 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/Index.jsp=UTF-8
-encoding//WebContent/utils/data=UTF-8
-encoding//WebContent/utils/data/Ip.jsp=UTF-8
-encoding//src/com/github/javapsg/darkchrome/servlet/Delete.java=UTF-8
+encoding//src/com/github/javapsg/darkchrome/servlet/db/Delete.java=UTF-8
 encoding/<project>=UTF-8
 encoding/WebContent=UTF-8

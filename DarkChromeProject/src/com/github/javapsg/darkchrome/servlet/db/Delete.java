@@ -1,4 +1,4 @@
-package com.github.javapsg.darkchrome.servlet;
+package com.github.javapsg.darkchrome.servlet.db;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,34 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.github.javapsg.darkchrome.UserManager;
 
-@WebServlet("/DarkChromeProject/update")
-public class Update extends HttpServlet {
+@WebServlet("/DarkChromeProject/delete")
+public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Update() {
+	public Delete() {
 		super();
 	}
 
-	protected void doPost1(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet1(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
-
-		String id, pwd;
 		UserManager dao = new UserManager();
 		int n = 0;
+		String id = request.getParameter("id");
 
-		id = request.getParameter("id");
-		pwd = request.getParameter("pwd");
-
-		n = dao.updateMember(id, pwd);
+		n = dao.deleteMember(id);
 
 		if (n > 0)
 			response.sendRedirect("/member/memberList.jsp");
 	else
-			out.print("<script> history.back(); </script>");
+			out.print("<script> alert('?'); </script>");
 	}
 
 }
