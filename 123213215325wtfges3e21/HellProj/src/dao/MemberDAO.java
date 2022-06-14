@@ -1,4 +1,4 @@
-package com.github.javapsg.darkchrome;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserManager {
+import common.JDBCUtil;
+
+public class MemberDAO {
 
 	public ArrayList<String> getMemberList() {
 		ArrayList<String> list = new ArrayList<>();
@@ -14,7 +16,7 @@ public class UserManager {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select id from user";
+		String sql = "select userid from member";
 
 		conn = JDBCUtil.getConnection();
 		try {
@@ -22,7 +24,7 @@ public class UserManager {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				list.add(rs.getString("id"));
+				list.add(rs.getString("userid"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -38,7 +40,7 @@ public class UserManager {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into user values(?, ?)";
+		String sql = "insert into member values(?, ?)";
 
 		conn = JDBCUtil.getConnection();
 		try {
@@ -60,7 +62,7 @@ public class UserManager {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "update user set pwd=? where id=?";
+		String sql = "update member set userpwd=? where userid=?";
 
 		conn = JDBCUtil.getConnection();
 		try {
@@ -82,7 +84,7 @@ public class UserManager {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "delete from user where id=?";
+		String sql = "delete from member where userid=?";
 
 		conn = JDBCUtil.getConnection();
 		try {
@@ -98,13 +100,13 @@ public class UserManager {
 		return n;
 	}
 
-	public Result getMemberPwd(String id, String pwd) {
+	public boolean getMemberPwd(String id, String pwd) {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select pwd from user where id=?";
-		Result result = Result.FALSE;
+		String sql = "select userpwd from member where userid=?";
+		boolean result = false;
 
 		conn = JDBCUtil.getConnection();
 		try {
@@ -113,11 +115,11 @@ public class UserManager {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				if (pwd.equals(rs.getString("pwd")))
-					result = Result.TRUE;
+				if (pwd.equals(rs.getString("userpwd")))
+					result = true;
 			}
 		} catch (SQLException e) {
-			result = Result.NULL;
+			e.printStackTrace();
 		} finally {
 			JDBCUtil.close(conn, pstmt, rs);
 		}
