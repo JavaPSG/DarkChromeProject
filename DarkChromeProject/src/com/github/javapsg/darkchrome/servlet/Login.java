@@ -45,6 +45,13 @@ public class Login extends HttpServlet {
 			request.setAttribute("warningmsg", "존재하지 않는 아이디입니다.");
 			break;
 		}
+		ServletContext app = this.getServletContext();
+		RequestDispatcher dispatcher = app.getRequestDispatcher("/Login.jsp");
+		try {
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

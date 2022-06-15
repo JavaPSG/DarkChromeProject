@@ -116,7 +116,7 @@ public class UserManager {
 				if (pwd.equals(rs.getString("pwd")))
 					result = Result.TRUE;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			result = Result.NULL;
 		} finally {
 			JDBCUtil.close(conn, pstmt, rs);

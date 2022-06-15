@@ -6,8 +6,23 @@ body {
 	margin: 0;
 	background-color: rgb(53, 54, 58);
 }
+.login_button {
+	cursor: pointer;
+	margin-top: 25px;
+	width: 100px;
+	height: 25px;
+	background-color: rgb(60, 64, 67);
+	border-radius: 5px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+	border: 1px solid rgb(60, 64, 67);
+}
+.login_button p{
+	text-align: center;
+	margin: 7px;
 
-.common_button1{
+}
+.common1_button{
 	cursor: pointer;
 	margin-top: 25px;
 	width: 200px;
@@ -19,12 +34,12 @@ body {
 	border: 1px solid rgb(60, 64, 67);
 
 }
-.common_button1 p{
+.common1_button p{
 	text-align: center;
 	margin: 14px;
 
 }
-.common_button1:hover{
+.common1_button:hover{
 	cursor: pointer;
 	margin-top: 25px;
 	width: 200px;
@@ -38,4 +53,20 @@ body {
 .common_margin_center{
 	margin-inline-end: auto;
 	margin-inline-start: auto;
+}
+.common2_button{
+	cursor: pointer;
+	margin-top: 25px;
+	width: 100px;
+	height: 25px;
+	background-color: rgb(60, 64, 67);
+	border-radius: 5px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+	border: 1px solid rgb(60, 64, 67);
+}
+.common2_button p{
+	text-align: center;
+	margin: 7px;
+
 }

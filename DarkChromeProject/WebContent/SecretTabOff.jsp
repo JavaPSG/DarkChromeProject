@@ -60,7 +60,7 @@
 				</label>
 			</form>
 		</div>
-		<div class="common_button1">
+		<div onclick="location.href='Login.jsp'" class="common_button1">
 			<p>시작하기</p>
 		</div>
 	</div>
