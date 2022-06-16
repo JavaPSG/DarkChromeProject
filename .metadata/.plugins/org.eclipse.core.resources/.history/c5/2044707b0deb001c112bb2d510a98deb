@@ -1,0 +1,59 @@
+package com.github.javapsg.darkchrome.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+@WebServlet("/Connection")
+public class ConnectionInit extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public ConnectionInit() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Document doc1 = Jsoup.connect("https://api.ip.pe.kr/json/").ignoreContentType(true).get();
+		String param1 = doc1.text();
+		JsonParser parser1 = new JsonParser();
+		JsonElement element1 = parser1.parse(param1);
+
+		Document doc2 = Jsoup.connect("http://ip-api.com/json/" + element1.getAsJsonObject().get("ip").getAsString()
+				+ "?fields=country,regionName,city").ignoreContentType(true).get();
+		String param2 = doc2.text();
+		JsonParser parser2 = new JsonParser();
+		JsonElement element2 = parser2.parse(param2);
+
+		response.setContentType("text/html");
+		request.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf8");
+
+		request.setAttribute("ip", element1.getAsJsonObject().get("ip").getAsString());
+		request.setAttribute("country", element1.getAsJsonObject().get("country_name").getAsJsonObject().get("ko").getAsString());
+		request.setAttribute("region", element2.getAsJsonObject().get("regionName").getAsString());
+		request.setAttribute("city", element2.getAsJsonObject().get("city").getAsString());
+		request.setAttribute("username", request.getRemoteUser());
+
+		ServletContext app = this.getServletContext();
+		RequestDispatcher dispatcher = app.getRequestDispatcher("/SecretTabOff.jsp");
+		try {
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

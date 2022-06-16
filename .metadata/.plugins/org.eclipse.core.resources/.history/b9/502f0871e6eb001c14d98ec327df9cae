@@ -1,0 +1,83 @@
+.box {
+	min-height: 0;
+	width: 450px;
+	height: 500px;
+	border: 1px solid rgb(232, 234, 237);
+	border-radius: 8px;
+	margin: 0 auto; 
+	margin-top: 256px;
+}
+.context{
+	padding: 48px 40px 36px;
+}
+.border{
+	font-size: 15px;
+}
+.textbox{
+	padding: 8px 0 0;
+	box-sizing: content-box;
+}
+.warningmsg{
+	font-size: 12px;
+	color: rgb(202, 89, 70);
+}
+.idbox{
+	outline: 1px solid rgb(232, 234, 237);
+	text-align: center;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+}
+.idbox:focus{
+	outline: 1px solid rgb(202, 89, 70);
+	border-radius: 8px;
+	text-align: center;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+}
+.pwdbox{
+	outline: 1px solid rgb(232, 234, 237);
+	border-radius: 8px;
+	text-align: center;
+	margin-top: 25px;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+}
+.pwdbox:focus{
+	outline: 1px solid rgb(202, 89, 70);
+	border-radius: 8px;
+	text-align: center;
+	margin-top: 25px;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+	text-decoration: none;
+}
+h1 {
+	color: rgb(232, 234, 237);
+	font-size: 24px;
+	font-weight: 400;
+	line-height: calc(100% + 8px);
+	text-align: center;
+	font-weight: 400;
+	font-family: Roboto;
+}
+p{
+	color: rgb(232, 234, 237);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: calc(100% + 8px);
+	text-align: center;
+	font-weight: 400;
+	font-family: Roboto;
+}

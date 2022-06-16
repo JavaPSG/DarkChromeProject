@@ -1,0 +1,128 @@
+.icon {
+	content: url(../image/darkchromeproject.png);
+	height: 64px;
+	width: 64px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+}
+.box {
+	min-height: 0;
+	width: 450px;
+	height: 500px;
+	border: 1px solid rgb(232, 234, 237);
+	border-radius: 8px;
+	margin: 0 auto; 
+	margin-top: 220px;
+}
+.context{
+	padding: 48px 40px 36px;
+}
+.border{
+	font-size: 15px;
+}
+.textbox{
+	padding: 16px 0 0;
+	box-sizing: content-box;
+}
+.warningmsg{
+	font-size: 12px;
+	color: rgb(202, 89, 70);
+}
+.side{
+	font-size: 14px;
+	display: flex;
+    justify-content: space-between;
+}
+.login{
+	margin-top: 60px;
+	cursor: pointer;
+	width: 100px;
+	min-height: 30px;
+	background-color: rgb(60, 64, 67);
+	border-radius: 5px;
+	border: 1px solid rgb(60, 64, 67);
+}
+.login p{
+	font-size: 14px;
+	margin: 15px;
+}
+.register{
+	margin-top: 65px;
+}
+.register a{
+    color: rgb(242, 139, 130);
+	text-decoration: none;
+}
+.idbox{
+	outline: 1px solid rgb(154, 160, 166);
+	background-color: rgb(53, 54, 58);
+	color: rgb(232, 234, 237);
+	border-radius: 3px;
+	border: none;
+	text-align: center;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+}
+.idbox:focus{
+	outline: 1px solid rgb(202, 89, 70);
+	background-color: rgb(53, 54, 58);
+	color: rgb(232, 234, 237);
+	border: none;
+	border-radius: 3px;
+	text-align: center;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+}
+.pwdbox{
+	outline: 1px solid rgb(154, 160, 166);
+	background-color: rgb(53, 54, 58);
+	color: rgb(232, 234, 237);
+	border-radius: 3px;
+	border: none;
+	text-align: center;
+	margin-top: 20px;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+}
+.pwdbox:focus{
+	outline: 1px solid rgb(202, 89, 70);
+	background-color: rgb(53, 54, 58);
+	color: rgb(232, 234, 237);
+	border-radius: 3px;
+	border: none;
+	text-align: center;
+	margin-top: 20px;
+	width: 364px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 17px;
+	font-family: Roboto;
+	text-decoration: none;
+}
+h1 {
+	color: rgb(232, 234, 237);
+	font-size: 24px;
+	font-weight: 400;
+	line-height: calc(100% + 8px);
+	text-align: center;
+	font-weight: 400;
+	font-family: Roboto;
+}
+p{
+	color: rgb(232, 234, 237);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 0.5;
+	text-align: center;
+	font-weight: 400;
+	font-family: Roboto;
+}

@@ -1,0 +1,157 @@
+@import "../font/roboto.css";
+
+.wrapper {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	margin: 50px auto;
+}
+
+#button {
+	position: absolute;;
+	background-size: 0px;
+	size: 0px;
+	visibility: hidden;
+}
+
+.button_label {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	width: 27px;
+	height: 12.9px;
+	background: rgb(98, 130, 188);
+	border-radius: 20px;
+	transition: 0.15s;
+}
+
+.button {
+	position: absolute;
+	top: -1.5px;
+	left: 15px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 20px;
+	background: rgb(138, 180, 248);
+	transition: 0.15s;
+}
+
+.icon, h1, .link {
+	margin-top: 1.5rem;
+}
+
+.icon, h1, .bulletpoints, #cookie-controls {
+	margin-bottom: 1.5rem;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	font-size: 100%;
+	margin: 0;
+	background-color: rgb(53, 54, 58);
+}
+
+.content {
+	margin-top: 40px;
+	min-width: 240px;
+	padding: 8px 48px 24px;
+	background-color: rgb(53, 54, 58);
+	color: rgb(232, 234, 237); /* --google-grey-200 */
+	font-size: calc(100% - 2px);
+	line-height: calc(100% + 6px);
+	min-width: 240px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+	max-width: 600px;
+}
+
+h1 {
+	font-size: 22px;
+	font-weight: 400;
+	line-height: calc(100% + 8px);
+	text-align: center;
+	font-weight: 400;
+	font-family: Roboto, 'Segoe UI', Arial, 'Malgun Gothic', Gulim,
+		sans-serif;
+}
+
+p {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-size: 14px;
+	font-family: Roboto, 'Segoe UI', Arial, 'Malgun Gothic', Gulim,
+		sans-serif;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	margin-bottom: 1.5rem;
+}
+
+em {
+	color: white;
+	font-style: normal;
+}
+
+.link {
+	color: rgb(138, 180, 248);
+	text-decoration: none;
+}
+
+.icon {
+	content: url(../image/icon-gray.svg);
+	height: 120px;
+	width: 120px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+}
+
+#cookie {
+	align-items: center;
+	background-color: rgb(60, 64, 67); /* --google-grey-800 */
+	border-radius: 4px;
+	box-sizing: border-box;
+	display: flex;
+	padding: 12px 20px;
+	padding-right: 24px;
+	font-size: 14px;
+	font-family: Roboto;
+}
+
+#cookie-description {
+	flex: 1;
+	padding-inline-end: 20px;
+}
+
+#cookie-description em {
+	display: block;
+}
+
+/* Align the two columns of bulletpoints next to each other. */
+#bulletpoints-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	font-size: 14px;
+	font-family: Roboto;
+}
+
+.bulletpoints {
+	flex-basis: 285px; /* (600px - 30px) / 2. */
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+.bulletpoints.first {
+	margin-inline-end: 30px;
+}
+
+/** Paddings and margins ---------------------------------------------------- */
+.bulletpoints ul {
+	margin: 4px 0 0;
+	padding-inline-start: 16px;
+}

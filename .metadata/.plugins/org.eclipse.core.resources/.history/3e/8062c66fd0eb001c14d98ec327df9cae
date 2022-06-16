@@ -1,0 +1,33 @@
+@import "../font/roboto.css";
+
+
+.common_button1{
+	cursor: pointer;
+	margin-top: 25px;
+	width: 200px;
+	height: 45px;
+	background-color: rgb(60, 64, 67);
+	border-radius: 5px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+	text-align: center;
+	font-size: 14px;
+	font-family: Roboto;
+	border: 1px solid rgb(60, 64, 67);
+
+}
+.common_button1:hover{
+	cursor: pointer;
+	margin-top: 25px;
+	width: 200px;
+	height: 45px;
+	background-color: rgb(60, 64, 67);
+	border-radius: 5px;
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+	border: 1px solid #5f6368;
+}
+.common_margin_center{
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+}

@@ -1,0 +1,70 @@
+package com.github.javapsg.darkchrome.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.github.javapsg.darkchrome.Result;
+import com.github.javapsg.darkchrome.UserManager;
+
+
+@WebServlet("/Login")
+public class Register extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public Register() {
+        super();
+    }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		request.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf8");
+		Result result = new UserManager().getMemberPwd((String)request.getAttribute("id"), (String)request.getAttribute("pwd"));
+		Result result2 = new UserManager().getMember((String)request.getAttribute("nick"), (String)request.getAttribute("id"));
+		if (result2 == Result.TRUE) {
+			request.setAttribute("warningmsg", "이미 존재하는 계정입니다.");
+			ServletContext app = this.getServletContext();
+			RequestDispatcher dispatcher = app.getRequestDispatcher("/Login.jsp");
+			try {
+				dispatcher.forward(request, response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		switch (result) {
+		case TRUE:{
+			request.setAttribute("warningmsg", "이미 존재하는 계정입니다.");
+			break;
+		}
+		default:
+			if (!((String)request.getAttribute("pwd1")).equals((String)request.getAttribute("pwd2"))) {
+				request.setAttribute("warningmsg", "비밀번호를 다시 확인해주세요");
+				break;
+			}
+			ServletContext app = this.getServletContext();
+			RequestDispatcher dispatcher = app.getRequestDispatcher("/Main.jsp");
+			try {
+				dispatcher.forward(request, response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
+			break;
+		}
+		ServletContext app = this.getServletContext();
+		RequestDispatcher dispatcher = app.getRequestDispatcher("/Login.jsp");
+		try {
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
