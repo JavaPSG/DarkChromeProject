@@ -1,6 +1,7 @@
 package com.github.javapsg.darkchrome.servlet;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -26,7 +27,20 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf8");
 		response.setCharacterEncoding("utf8");
-		Result result = new UserManager().getMemberPwd((String)request.getAttribute("id"), (String)request.getAttribute("id"));
+		for (String object : Arrays.asList(request.getParameter("id"),request.getParameter("pwd"))) {
+			if (object.isEmpty()) {
+				request.setAttribute("warningmsg", "비어있는 입력 란이 있습니다.");
+				ServletContext app = this.getServletContext();
+				RequestDispatcher dispatcher = app.getRequestDispatcher("/Login.jsp");
+				try {
+					dispatcher.forward(request, response);
+				} catch (ServletException e) {
+					e.printStackTrace();
+				}
+				return;
+			}
+		}
+		Result result = new UserManager().getMemberPwd((String)request.getAttribute("id"), (String)request.getAttribute("pwd"));
 		switch (result) {
 		case TRUE:
 			ServletContext app = this.getServletContext();
@@ -44,6 +58,13 @@ public class Login extends HttpServlet {
 		default:
 			request.setAttribute("warningmsg", "존재하지 않는 아이디입니다.");
 			break;
+		}
+		ServletContext app = this.getServletContext();
+		RequestDispatcher dispatcher = app.getRequestDispatcher("/Login.jsp");
+		try {
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
 		}
 	}
 

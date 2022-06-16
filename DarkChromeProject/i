@@ -1,0 +1,1 @@
+create table profile (nick varchar(30), id varchar(30), pwd varchar(30))

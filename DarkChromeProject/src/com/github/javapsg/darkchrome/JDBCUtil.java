@@ -1,6 +1,7 @@
 package com.github.javapsg.darkchrome;
 
 import java.sql.Connection;
+import oracle.jdbc.driver.OracleDriver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

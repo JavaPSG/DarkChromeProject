@@ -12,20 +12,22 @@
 </head>
 <body>
 	<%
-	Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("loginscreen", "utf-8"));
-	cok.setMaxAge(60 * 60 * 24 * 30);
-	response.addCookie(cok);
+		Cookie cok = new Cookie("DCTCookie", URLEncoder.encode("registerscreen", "utf-8"));
+		cok.setMaxAge(60 * 60 * 24 * 30);
+		response.addCookie(cok);
 	%>
-	<div class="box1">
+	<div class="box2">
 		<div class="context">
 			<div class="icon" role="presentation" alt=""></div>
-			<h1>로그인</h1>
-			<p>DarkChromeProject 계정 사용</p>
+			<h1>회원가입</h1>
+			<p>DarkChromeProject 계정 가입</p>
 			<div class="border">
 				<div class="textbox">
-					<form id="form" action="Login" method="post">
-						<input class="idbox" type="text" name="id" placeholder="아이디 또는 이메일">
-						<input class="pwdbox" type="password" name="pwd" placeholder="비밀번호">
+					<form id="form" action="Register" method="post">
+						<input class="idbox" type="text" name="nick" placeholder="닉네임">
+						<input class="pwdbox" type="text" name="id" placeholder="아이디 또는 이메일">
+						<input class="pwdbox" type="password" name="pwd1" placeholder="비밀번호">
+						<input class="pwdbox" type="password" name="pwd2" placeholder="비밀번호 확인">
 						<div class="warningmsg">
 							<%
 							String rs = ((String)request.getAttribute("warningmsg"));
@@ -34,13 +36,12 @@
 							<%=rs%>
 						</div>
 						<div class="side">
-							<div class="register">
-								<a href="./Register.jsp">계정 만들기</a>
+							<div class="register" >
+								<a href="./Login.jsp">로그인하기</a>
 							</div>
 
-							<div class="login"
-								onclick="document.getElementById('form').submit();">
-								<p>로그인</p>
+							<div class="login" onclick="document.getElementById('form').submit();">
+								<p>회원가입</p>
 							</div>
 						</div>
 					</form>
