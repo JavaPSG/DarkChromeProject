@@ -1,7 +1,6 @@
 package com.github.javapsg.darkchrome.servlet;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
@@ -12,16 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.github.javapsg.darkchrome.ConnectionData;
 import com.github.javapsg.darkchrome.Result;
 import com.github.javapsg.darkchrome.UserManager;
 
 
 @WebServlet("/Login")
-public class Login extends HttpServlet {
+public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Login() {
+    public Main() {
         super();
     }
 
@@ -45,16 +43,6 @@ public class Login extends HttpServlet {
 		Result result = new UserManager().getMemberPwd((String)request.getAttribute("id"), (String)request.getAttribute("pwd"));
 		switch (result) {
 		case TRUE:
-			response.setContentType("text/html");
-			request.setCharacterEncoding("utf8");
-			response.setCharacterEncoding("utf8");
-			ConnectionData cd = ConnectionData.getInstance();
-			request.setAttribute("ip", cd.getIp());
-			request.setAttribute("country", cd.getCountry());
-			request.setAttribute("region", cd.getRegion());
-			request.setAttribute("city", cd.getCity());
-			request.setAttribute("username", InetAddress.getLocalHost().getHostName());
-
 			ServletContext app = this.getServletContext();
 			RequestDispatcher dispatcher = app.getRequestDispatcher("/Main.jsp");
 			try {
@@ -72,7 +60,7 @@ public class Login extends HttpServlet {
 			break;
 		}
 		ServletContext app = this.getServletContext();
-		RequestDispatcher dispatcher = app.getRequestDispatcher("/Login.jsp");
+		RequestDispatcher dispatcher = app.getRequestDispatcher("/Main.jsp");
 		try {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
